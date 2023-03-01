@@ -12,8 +12,8 @@ import java.io.*;
  * @Description:
  * @note
  **/
-public class NewFileUtils extends org.apache.commons.io.FileUtils{
-    private static Logger logger = LoggerFactory.getLogger(NewFileUtils.class);
+public class FileUtils extends org.apache.commons.io.FileUtils{
+    private static Logger logger = LoggerFactory.getLogger(FileUtils.class);
 
     /**
      * 复制单个文件，如果目标文件存在，则不覆盖
@@ -22,7 +22,7 @@ public class NewFileUtils extends org.apache.commons.io.FileUtils{
      * @return 如果复制成功，则返回true，否则返回false
      */
     public static boolean copyFile(String srcFileName, String descFileName) {
-        return NewFileUtils.copyFileCover(srcFileName, descFileName, false);
+        return FileUtils.copyFileCover(srcFileName, descFileName, false);
     }
 
     /**
@@ -51,7 +51,7 @@ public class NewFileUtils extends org.apache.commons.io.FileUtils{
             // 如果目标文件存在，并且允许覆盖
             if (coverlay) {
                 logger.debug("目标文件已存在，准备删除!");
-                if (!NewFileUtils.delFile(descFileName)) {
+                if (!FileUtils.delFile(descFileName)) {
                     logger.debug("删除目标文件 " + descFileName + " 失败!");
                     return false;
                 }
@@ -119,7 +119,7 @@ public class NewFileUtils extends org.apache.commons.io.FileUtils{
      * @return 如果复制成功返回true，否则返回false
      */
     public static boolean copyDirectory(String srcDirName, String descDirName) {
-        return NewFileUtils.copyDirectoryCover(srcDirName, descDirName,
+        return FileUtils.copyDirectoryCover(srcDirName, descDirName,
                 false);
     }
 
@@ -154,7 +154,7 @@ public class NewFileUtils extends org.apache.commons.io.FileUtils{
             if (coverlay) {
                 // 允许覆盖目标目录
                 logger.debug("目标目录已存在，准备删除!");
-                if (!NewFileUtils.delFile(descDirNames)) {
+                if (!FileUtils.delFile(descDirNames)) {
                     logger.debug("删除目录 " + descDirNames + " 失败!");
                     return false;
                 }
@@ -178,7 +178,7 @@ public class NewFileUtils extends org.apache.commons.io.FileUtils{
         for (int i = 0; i < files.length; i++) {
             // 如果是一个单个文件，则直接复制
             if (files[i].isFile()) {
-                flag = NewFileUtils.copyFile(files[i].getAbsolutePath(),
+                flag = FileUtils.copyFile(files[i].getAbsolutePath(),
                         descDirName +File.separator+ files[i].getName());
                 // 如果拷贝文件失败，则退出循环
                 if (!flag) {
@@ -187,7 +187,7 @@ public class NewFileUtils extends org.apache.commons.io.FileUtils{
             }
             // 如果是子目录，则继续复制目录
             if (files[i].isDirectory()) {
-                flag = NewFileUtils.copyDirectory(files[i]
+                flag = FileUtils.copyDirectory(files[i]
                         .getAbsolutePath(), descDirName +File.separator+ files[i].getName());
                 // 如果拷贝目录失败，则退出循环
                 if (!flag) {
@@ -219,9 +219,9 @@ public class NewFileUtils extends org.apache.commons.io.FileUtils{
             return true;
         } else {
             if (file.isFile()) {
-                return NewFileUtils.deleteFile(fileName);
+                return FileUtils.deleteFile(fileName);
             } else {
-                return NewFileUtils.deleteDirectory(fileName);
+                return FileUtils.deleteDirectory(fileName);
             }
         }
     }
@@ -274,7 +274,7 @@ public class NewFileUtils extends org.apache.commons.io.FileUtils{
         for (int i = 0; i < files.length; i++) {
             // 删除子文件
             if (files[i].isFile()) {
-                flag = NewFileUtils.deleteFile(files[i].getAbsolutePath());
+                flag = FileUtils.deleteFile(files[i].getAbsolutePath());
                 // 如果删除文件失败，则退出循环
                 if (!flag) {
                     break;
@@ -282,7 +282,7 @@ public class NewFileUtils extends org.apache.commons.io.FileUtils{
             }
             // 删除子目录
             else if (files[i].isDirectory()) {
-                flag = NewFileUtils.deleteDirectory(files[i]
+                flag = FileUtils.deleteDirectory(files[i]
                         .getAbsolutePath());
                 // 如果删除子目录失败，则退出循环
                 if (!flag) {

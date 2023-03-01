@@ -1,19 +1,16 @@
-package com.custome.module;
+package com.custome.module.test;
 
-import com.custome.module.company.htht.piemap.entity.ResultMapRouteInfor;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-import static org.junit.Assert.*;
-
 /**
- * @ClassName: SomeTestTest
+ * @ClassName: EnumTest
  * @Author: sunlin
  * @Description:
  * @Date: 2022/10/28 17:26
  */
-public class SomeTestTest {
+public class EnumTest {
 
     @Before
     public void setUp() throws Exception {

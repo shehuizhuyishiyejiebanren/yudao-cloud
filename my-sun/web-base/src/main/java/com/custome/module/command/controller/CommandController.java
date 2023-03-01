@@ -1,7 +1,7 @@
 package com.custome.module.command.controller;
 
 import com.custome.module.command.service.CommandService;
-import com.custome.module.utils.NewFileUtils;
+import com.custome.module.utils.FileUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -35,7 +35,7 @@ public class CommandController {
     **/
     @RequestMapping("copyDirectory")
     public boolean copyDirectory(String srcDirPath, String destinationDirPath){
-        boolean isSuccess = NewFileUtils.copyDirectoryCover(srcDirPath, destinationDirPath, true);
+        boolean isSuccess = FileUtils.copyDirectoryCover(srcDirPath, destinationDirPath, true);
         return isSuccess;
     }
 
@@ -57,7 +57,7 @@ public class CommandController {
             String fileName = srcFile.getName();*/
             String  dirPath = recoverDestinationPath+File.separator+fileName;
             //恢复拷贝
-            NewFileUtils.copyFileCover(srcFilePath,dirPath,true);
+            FileUtils.copyFileCover(srcFilePath,dirPath,true);
             commandService.systemRecover(dirPath,recoverStartType);
             responseResult.put("success",true);
             responseResult.put("msg","执行成功，请稍后查看状态");
