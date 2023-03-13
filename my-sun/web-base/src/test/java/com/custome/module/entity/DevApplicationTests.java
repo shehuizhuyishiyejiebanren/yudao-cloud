@@ -1,8 +1,7 @@
 package com.custome.module.entity;
 
 import com.custome.module.test.ResultMapRouteInfor;
-import com.custome.module.company.htht.piemap.entity.ResultMapRouteInfor;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest

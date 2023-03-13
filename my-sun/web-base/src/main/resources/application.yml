@@ -20,9 +20,3 @@ logging:
     com.ruoyi: warn
     org.springframework: warn
 
-#com.pie-map导航dataMap文件的路径pie-map-route
-navigationroute:
-  routeinfor:
-    dataMap: "C:/pie_map_route/hubei/Map/"
-    dataGuide: "C:/pie_map_route/hubei/"
-

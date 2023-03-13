@@ -1,7 +1,7 @@
 /**
  * Copyright (c) 2013-Now http://jeesite.com All rights reserved.
  */
-package com.custome.module.utils;
+package com.custome.utils;
 
 import java.io.*;
 import java.util.Properties;

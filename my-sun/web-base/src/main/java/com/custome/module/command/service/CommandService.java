@@ -1,6 +1,6 @@
 package com.custome.module.command.service;
 
-import com.custome.module.utils.CommandUtils;
+import com.custome.utils.CommandUtils;
 import org.springframework.stereotype.Service;
 
 /**

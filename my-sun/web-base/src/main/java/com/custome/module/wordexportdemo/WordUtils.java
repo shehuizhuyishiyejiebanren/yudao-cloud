@@ -1,5 +1,7 @@
-package com.custome.module.utils.utils2;
+package com.custome.module.wordexportdemo;
 
+import com.custome.utils.IOUtils;
+import com.custome.utils.WebUtils;
 import freemarker.template.Configuration;
 import freemarker.template.Template;
 import freemarker.template.TemplateException;
